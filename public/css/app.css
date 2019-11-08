@@ -1,0 +1,30 @@
+body {
+    background-image:url('../img/tree-bg.png');
+    background-repeat: no-repeat;
+    background-color:whitesmoke !important;
+    
+    
+}
+
+.form-label {
+    color: white;
+}
+
+.Tittle {
+    color: white;
+    font-size: 400%;
+}
+
+.card-readonly {
+    transition: 500ms;
+}
+.card-readonly:hover {
+
+background-color: gainsboro ;
+}
+
+
+
+hr {
+color: white;
+}
