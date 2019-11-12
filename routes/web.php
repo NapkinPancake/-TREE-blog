@@ -15,10 +15,12 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home/user', 'HomeController@user');
+//Route::get('/home/user', 'HomeController@user');
 
 Route::get('/', 'PagesController@index');
 
 Route::resource('stories','StoryController');
+
+Route::resource('home' , 'HomeController');

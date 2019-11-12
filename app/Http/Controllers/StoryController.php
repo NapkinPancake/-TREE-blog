@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Story;
+use App\User;
 
 class StoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth' , ['except' => ['index', 'show'] ]);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +26,7 @@ class StoryController extends Controller
      */
     public function index()
     {
-        $stories = Story::orderBy('id' , 'ASC')->paginate(5);
+        $stories = Story::orderBy('created_at' , 'DESC')->paginate(5);
         return view('Stories/index')->with('stories' , $stories);
     }
 
@@ -44,9 +56,8 @@ class StoryController extends Controller
     
          $story = new Story;
          $story->tittle = $request->input('tittle');
-         //$story->overview = $request->input('overview');
+         $story->user_id = auth()->user()->id;
          $story->story = $request->input('story');
-         //$story->url = $request->input('url');
          $story->save();
     
          return redirect('/stories')->with('success' , 'Story created');
@@ -73,6 +84,10 @@ class StoryController extends Controller
     public function edit($id)
     {
         $story = Story::find($id);
+
+        if (auth()->user()->id !== $story->user_id) {
+            return redirect('/stories')->with('error' , "You have no such right");
+        }
         return view('Stories/edit')->with('story' , $story);
     }
 
@@ -86,6 +101,8 @@ class StoryController extends Controller
     public function update(Request $request, $id)
     {
         $story = Story::find($id);
+        
+
          $story->tittle = $request->input('tittle');
          //$story->overview = $request->input('overview');
          $story->story = $request->input('story');
@@ -104,8 +121,13 @@ class StoryController extends Controller
     public function destroy($id)
     {
         $story = Story::find($id);
+
+        if (auth()->user()->id !== $story->user_id) {
+            return redirect('stories');
+        }
+
         $story->delete();
 
-        return redirect('/stories');
+        return redirect('/stories' )->with('success' , 'Story deleted');
     }
 }

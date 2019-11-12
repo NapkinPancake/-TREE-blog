@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-<div class="col-4"><a href="/stories/{{$story->id}}" class="btn btn-outline-light">←back</a></div>
+<div class="col-4"><a href='{{url()->previous()}}' class="btn btn-outline-light">←back</a></div>
         <div class="col-4"></div>
         <div class="col-4"></div>
       </div>

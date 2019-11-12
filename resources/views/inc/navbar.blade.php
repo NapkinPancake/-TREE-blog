@@ -36,22 +36,14 @@
                
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        
 
                         @guest
-                            <li class="nav-item mr-5">
+                            <li class="nav-item">
                                 <a class="nav-link navbar-elements" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link navbar-elements" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                            
                         @else 
-
-                      
-
-                        
 
                             <li class="nav-item dropdown">
 
@@ -63,6 +55,10 @@
 
                                 <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
 
+                                    <a class="dropdown-item mr-3 " href="/home/">Home</a>
+
+                                    <a class="dropdown-item mr-3 " href="/home/show">Your stories</a>
+
                                     <a class="dropdown-item mr-3 " href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -72,15 +68,15 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-
-                                 
-                                    
                                 </div>
-
-                            
                             </li>
-                            
                         @endguest
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link navbar-elements ml-5">About Us</a>
+                            </li>
+                        
+                        
                     </ul>
 
                 </div>
