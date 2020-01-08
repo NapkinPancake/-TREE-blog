@@ -24,3 +24,7 @@ Route::get('/', 'PagesController@index');
 Route::resource('stories','StoryController');
 
 Route::resource('home' , 'HomeController');
+
+Route::resource('course' , 'CourseController');
+
+

@@ -1,7 +1,7 @@
 body {
-    background-image:url('../img/tree-bg.png');
+    background-image:url('../img/tree-bg-old.png');
     background-repeat: no-repeat;
-    background-color:whitesmoke !important;
+    background-color:#E8E8E8 !important;
     
     
 }
@@ -12,7 +12,7 @@ body {
 
 .Tittle {
     color: white;
-    font-size: 400%;
+    font-size: 300%;
 }
 
 .card-readonly {
@@ -27,4 +27,8 @@ background-color: gainsboro ;
 
 hr {
 color: white;
+}
+
+.grey-bg {
+    background-color:whitesmoke ; 
 }

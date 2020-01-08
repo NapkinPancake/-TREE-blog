@@ -14,7 +14,7 @@
 
                             <ul class="navbar-nav">
                                 <li class="nav-item mr-5">
-                                       <a class='nav-link navbar-elements' href="/"> Home</a>
+                                       <a class='nav-link navbar-elements' href="#"> Link</a>
                                 </li>
                                 <li class="nav-item">
                                         <a class='nav-link navbar-elements' href="/stories"> Stories</a>
@@ -73,7 +73,7 @@
                         @endguest
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link navbar-elements ml-5">About Us</a>
+                                <a href="#" class="nav-link navbar-elements ml-5" disabled>Link</a>
                             </li>
                         
                         
